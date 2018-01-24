@@ -53,7 +53,7 @@ android {
             
             //versionCode gitVersionCode
             //versionName gitVersionName
-            buildConfigField("String", "BASE_URL", "\"\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/\"")
             versionNameSuffix "-stage"
             applicationIdSuffix "stage"
         }
@@ -62,7 +62,7 @@ android {
             
             //versionCode gitVersionCode
             //versionName gitVersionName
-            buildConfigField("String", "BASE_URL", "\"\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/\"")
         }
     }
     dataBinding {

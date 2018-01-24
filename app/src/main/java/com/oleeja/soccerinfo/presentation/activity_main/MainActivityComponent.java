@@ -1,13 +1,19 @@
 package com.oleeja.soccerinfo.presentation.activity_main;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 
 import com.oleeja.soccerinfo.di.activity.ActivityScope;
+import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragment;
+import com.oleeja.soccerinfo.presentation.activity_main.leagues.injection.LeaguesFragmentComponent;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.Subcomponent;
 import dagger.android.AndroidInjector;
+import dagger.android.support.FragmentKey;
+import dagger.multibindings.IntoMap;
 
 @ActivityScope
 @Subcomponent(modules = {
@@ -28,13 +34,13 @@ public interface MainActivityComponent extends AndroidInjector<MainActivity> {
         }
     }
 
-    @Module(subcomponents = {/*MainFragmentComponent.class*/})
+    @Module(subcomponents = {LeaguesFragmentComponent.class})
     abstract class FragmentBindingsModule {
-/*        @Binds
+        @Binds
         @IntoMap
-        @FragmentKey(MainFragment.class)
-        public abstract AndroidInjector.Factory<? extends Fragment> mainFragmentComponentBuilder(MainFragmentComponent.Builder builder);
-        */
+        @FragmentKey(LeaguesFragment.class)
+        public abstract AndroidInjector.Factory<? extends Fragment> mainFragmentComponentBuilder(LeaguesFragmentComponent.Builder builder);
+
     }
 
 }
