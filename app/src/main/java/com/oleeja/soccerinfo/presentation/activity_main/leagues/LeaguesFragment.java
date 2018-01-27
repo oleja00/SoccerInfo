@@ -4,13 +4,17 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.FragmentLeaguesBinding;
+import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
 import com.oleeja.soccerinfo.presentation.common.BaseFragment;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -18,13 +22,15 @@ import dagger.android.support.AndroidSupportInjection;
 
 public class LeaguesFragment extends BaseFragment implements LeaguesFragmentContract.View {
 
+    public static LeaguesFragment newInstance() {
+        return new LeaguesFragment();
+    }
+
     @Inject
     LeaguesPresenter mPresenter;
     private FragmentLeaguesBinding mBinding;
 
-    public static LeaguesFragment newInstance() {
-        return new LeaguesFragment();
-    }
+    private LeaguesAdapter mAdapter;
 
     @Override
     public void onAttach(Context context) {
@@ -43,6 +49,9 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
         super.onViewCreated(view, savedInstanceState);
         mBinding.setEventListener(mPresenter);
         mPresenter.attachView(this);
+        mAdapter = new LeaguesAdapter();
+        mBinding.rvLeagues.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.column_count)));
+        mBinding.rvLeagues.setAdapter(mAdapter);
     }
 
     @Override
@@ -50,5 +59,11 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
         super.onDestroyView();
         mPresenter.detachView();
     }
+
+    @Override
+    public void showInfo(List<LeagueModel> leagueModels) {
+        mAdapter.setData(leagueModels);
+    }
+
 
 }

@@ -6,33 +6,33 @@ import com.google.gson.annotations.SerializedName;
  * Created by Oleja on 25.01.2018.
  */
 
-public class LigueDto {
+public class LeagueDto {
 
     @SerializedName("id")
-    private long id;
+    public long id;
 
     @SerializedName("caption")
-    private String caption;
+    public String caption;
 
     @SerializedName("league")
-    private String league;
+    public String league;
 
     @SerializedName("year")
-    private String year;
+    public String year;
 
     @SerializedName("currentMatchday")
-    private long currentMatchday;
+    public long currentMatchday;
 
     @SerializedName("numberOfMatchdays")
-    private long numberOfMatchdays;
+    public long numberOfMatchdays;
 
     @SerializedName("numberOfTeams")
-    private long numberOfTeams;
+    public long numberOfTeams;
 
     @SerializedName("numberOfGames")
-    private long numberOfGames;
+    public long numberOfGames;
 
     @SerializedName("lastUpdated")
-    private String lastUpdated;
+    public String lastUpdated;
 
 }

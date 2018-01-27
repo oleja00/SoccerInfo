@@ -1,8 +1,7 @@
 package com.oleeja.soccerinfo.di.module;
 
 
-
-import com.google.gson.Gson;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.oleeja.soccerinfo.BuildConfig;
 import com.oleeja.soccerinfo.data.api.RestApi;
 import com.oleeja.soccerinfo.data.utils.AuthInterceptor;
@@ -30,10 +29,11 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(OkHttpClient okHttp, Gson gson) {
+    Retrofit provideRetrofit(OkHttpClient okHttp) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL  + API_VERSION + "/")
-                .addConverterFactory(GsonConverterFactory.create(gson));
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
         builder.client(okHttp);
 

@@ -1,8 +1,13 @@
 package com.oleeja.soccerinfo.domain.leagues;
 
+import java.util.List;
+
+import io.reactivex.Single;
+
 /**
  * Created by Oleja on 25.01.2018.
  */
 
 public interface LeaguesRepository {
+    Single <List<LeagueModel>> getLeagues();
 }

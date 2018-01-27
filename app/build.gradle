@@ -89,6 +89,7 @@ dependencies {
     tree.each {
         File file -> apply from: file, to: dependencies 
     }
+
 }
 
 buildscript {
@@ -102,8 +103,6 @@ buildscript {
 }
 
 apply plugin: 'com.jakewharton.hugo'
-
-apply from: "$project.rootDir/tools/lint.gradle"
 
 apply from: "$project.rootDir/tools/icon-badge.gradle"
 
