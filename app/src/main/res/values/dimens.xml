@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_defauld_pading">16dp</dimen>
+    <dimen name="big_text">48sp</dimen>
+    <dimen name="medium_text">32sp</dimen>
+</resources>
