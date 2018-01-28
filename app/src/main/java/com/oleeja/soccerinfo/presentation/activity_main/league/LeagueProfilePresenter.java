@@ -62,4 +62,9 @@ public final class LeagueProfilePresenter implements BasePresenter<LeagueProfile
     public void onRefresh() {
         getLeague(false);
     }
+
+    @Override
+    public void onDetailsClicked(LeagueModel model) {
+        mEventDelegate.showLeagueTable(model);
+    }
 }
