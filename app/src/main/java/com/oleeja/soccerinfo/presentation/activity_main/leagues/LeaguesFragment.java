@@ -57,7 +57,7 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
         if(mPresenter.onViewStateRestored(savedInstanceState)!=null){
             mPresenter.setInfo(mPresenter.onViewStateRestored(savedInstanceState));
         }else {
-            mPresenter.getLeagues();
+            mPresenter.getLeagues(true);
         }
     }
 
@@ -70,6 +70,13 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
     @Override
     public void showInfo(List<LeagueModel> leagueModels) {
         mAdapter.setData(leagueModels);
+    }
+
+    @Override
+    public void hideRefreshUploading() {
+        if(mBinding.refreshLayout.isRefreshing()){
+            mBinding.refreshLayout.setRefreshing(false);
+        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.databinding.ViewDataBinding;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.ViewGroup;
@@ -91,6 +92,11 @@ public abstract class BindingAdapter<T extends ViewDataBinding> extends Adapter<
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
         this.mRecyclerView = null;
+    }
+
+    @android.databinding.BindingAdapter({"onRefresh"})
+    public static void refresh(SwipeRefreshLayout srl, SwipeRefreshLayout.OnRefreshListener listener) {
+        srl.setOnRefreshListener(listener);
     }
 
 }

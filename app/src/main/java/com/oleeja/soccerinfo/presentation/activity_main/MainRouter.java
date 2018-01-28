@@ -32,6 +32,6 @@ public class MainRouter extends BaseRouter implements
 
     @Override
     public void showLeagueProfile(LeagueModel model) {
-        addFragmentWithBackStack(R.id.container, LeagueProfileFragment.newInstance(model), LeagueProfileFragment.class.getCanonicalName());
+        replaceFragmentWithBackStack(R.id.container, LeagueProfileFragment.newInstance(model), LeagueProfileFragment.class.getCanonicalName());
     }
 }

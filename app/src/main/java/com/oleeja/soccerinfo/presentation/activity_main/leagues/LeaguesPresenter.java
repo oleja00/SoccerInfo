@@ -40,16 +40,22 @@ public final class LeaguesPresenter implements BasePresenter<LeaguesFragmentCont
         mView = view;
     }
 
-    public void getLeagues() {
+    public void getLeagues(boolean isNeedToShowUploading) {
         RxUtils.manage(this, mLeaguesInteractor.getLeagues()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(subscription -> mView.showUploading())
+                .doOnSubscribe(subscription -> {
+                    if(isNeedToShowUploading){
+                        mView.showUploading();
+                    }
+
+                })
                 .subscribe(this::setInfo,
                         throwable -> mErrorHandler.handleError(throwable, mView)));
     }
 
     public void setInfo(List<LeagueModel> leagueModels){
+        mView.hideRefreshUploading();
         mView.hideUploading();
         mLeagueModels = leagueModels;
         mView.showInfo(leagueModels);
@@ -81,5 +87,10 @@ public final class LeaguesPresenter implements BasePresenter<LeaguesFragmentCont
     @Override
     public void onLeagueClicked(LeagueModel model) {
         mEventDelegate.showLeagueProfile(model);
+    }
+
+    @Override
+    public void onRefresh() {
+        getLeagues(false);
     }
 }

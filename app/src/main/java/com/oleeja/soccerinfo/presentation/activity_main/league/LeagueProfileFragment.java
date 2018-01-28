@@ -50,7 +50,7 @@ public class LeagueProfileFragment extends BaseFragment implements LeagueProfile
         super.onViewCreated(view, savedInstanceState);
         mBinding.setEventListener(mPresenter);
         mPresenter.attachView(this);
-        mBinding.setModel(getArguments().getParcelable(LEAGUE_KEY));
+        mPresenter.setInfo(getArguments().getParcelable(LEAGUE_KEY));
     }
 
     @Override
@@ -59,4 +59,15 @@ public class LeagueProfileFragment extends BaseFragment implements LeagueProfile
         mPresenter.detachView();
     }
 
+    @Override
+    public void showInfo(LeagueModel leagueModel) {
+        mBinding.setModel(leagueModel);
+    }
+
+    @Override
+    public void hideRefreshUploading() {
+        if(mBinding.refreshLayout.isRefreshing()){
+            mBinding.refreshLayout.setRefreshing(false);
+        }
+    }
 }

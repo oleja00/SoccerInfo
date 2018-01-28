@@ -24,4 +24,7 @@ public class LeaguesInteractor {
         return mLeaguesRepository.getLeagues();
     }
 
+    public Single<LeagueModel> getLeague(long id) {
+        return mLeaguesRepository.getLeague(id);
+    }
 }
