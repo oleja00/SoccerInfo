@@ -32,4 +32,9 @@ public class LeaguesRepositoryImpl implements LeaguesRepository {
     public Single<List<LeagueModel>> getLeagues() {
         return mRestApi.getLeagues().map(leagueDtoList -> Mappers.mapCollection(leagueDtoList, mLeaguesResponseMapper));
     }
+
+    @Override
+    public Single<LeagueModel> getLeague(long id) {
+        return mRestApi.getLeague(id).map(mLeaguesResponseMapper::map);
+    }
 }

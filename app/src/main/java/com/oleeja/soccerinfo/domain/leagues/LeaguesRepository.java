@@ -10,4 +10,6 @@ import io.reactivex.Single;
 
 public interface LeaguesRepository {
     Single <List<LeagueModel>> getLeagues();
+
+    Single<LeagueModel> getLeague(long id);
 }

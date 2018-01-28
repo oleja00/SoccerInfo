@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Soccer Info</string>
     <string name="last_update">Last updated: %s</string>
+    <string name="caption">Caption: %s</string>
+    <string name="league">League: %s</string>
+    <string name="year">Year: %s</string>
+    <string name="current_match_day">Current match day: %d</string>
+    <string name="number_of_match_days">Number of match days: %d</string>
+    <string name="number_of_teams">Number of teams: %d</string>
+    <string name="number_of_games">Number of games: %d</string>
+    <string name="details">Details</string>
 </resources>
