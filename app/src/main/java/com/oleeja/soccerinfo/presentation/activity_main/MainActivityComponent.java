@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.support.v4.app.Fragment;
 
 import com.oleeja.soccerinfo.di.activity.ActivityScope;
+import com.oleeja.soccerinfo.presentation.activity_main.league.LeagueProfileFragment;
+import com.oleeja.soccerinfo.presentation.activity_main.league.injection.LeagueProfileFragmentComponent;
 import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.leagues.injection.LeaguesFragmentComponent;
 
@@ -34,12 +36,18 @@ public interface MainActivityComponent extends AndroidInjector<MainActivity> {
         }
     }
 
-    @Module(subcomponents = {LeaguesFragmentComponent.class})
+    @Module(subcomponents = {LeaguesFragmentComponent.class,
+            LeagueProfileFragmentComponent.class})
     abstract class FragmentBindingsModule {
         @Binds
         @IntoMap
         @FragmentKey(LeaguesFragment.class)
-        public abstract AndroidInjector.Factory<? extends Fragment> mainFragmentComponentBuilder(LeaguesFragmentComponent.Builder builder);
+        public abstract AndroidInjector.Factory<? extends Fragment> leagueFragmentComponentBuilder(LeaguesFragmentComponent.Builder builder);
+
+        @Binds
+        @IntoMap
+        @FragmentKey(LeagueProfileFragment.class)
+        public abstract AndroidInjector.Factory<? extends Fragment> leagueProfileFragmentComponentBuilder(LeagueProfileFragmentComponent.Builder builder);
 
     }
 

@@ -12,18 +12,21 @@ import java.util.List;
 public class LeaguesAdapter extends BindingAdapter<ItemLeagueBinding> {
 
     private SortedListWrapper<LeagueModel> mData;
+    private LeaguesFragmentContract.EventListener mEventListener;
 
-    public LeaguesAdapter() {
-        mData = new SortedListWrapper<LeagueModel>(this);
+    public LeaguesAdapter(LeaguesFragmentContract.EventListener eventListener) {
+        mEventListener = eventListener;
+        mData = new SortedListWrapper<>(this);
     }
 
-    public void setData(List<com.oleeja.soccerinfo.domain.leagues.LeagueModel> data) {
+    public void setData(List<LeagueModel> data) {
         mData.setData(data);
     }
 
     @Override
     protected void bindItem(BindingViewHolder<ItemLeagueBinding> viewHolder, int position, List<Object> payload) {
         viewHolder.getBinding().setModel(mData.get(position));
+        viewHolder.getBinding().setEventListener(mEventListener);
     }
 
     @Override

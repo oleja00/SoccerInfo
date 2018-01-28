@@ -3,6 +3,7 @@ package com.oleeja.soccerinfo.presentation.activity_main.leagues;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
@@ -49,9 +50,15 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
         super.onViewCreated(view, savedInstanceState);
         mBinding.setEventListener(mPresenter);
         mPresenter.attachView(this);
-        mAdapter = new LeaguesAdapter();
+        mAdapter = new LeaguesAdapter(mPresenter);
         mBinding.rvLeagues.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.column_count)));
         mBinding.rvLeagues.setAdapter(mAdapter);
+
+        if(mPresenter.onViewStateRestored(savedInstanceState)!=null){
+            mPresenter.setInfo(mPresenter.onViewStateRestored(savedInstanceState));
+        }else {
+            mPresenter.getLeagues();
+        }
     }
 
     @Override
@@ -65,5 +72,10 @@ public class LeaguesFragment extends BaseFragment implements LeaguesFragmentCont
         mAdapter.setData(leagueModels);
     }
 
-
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        hideUploading();
+        mPresenter.onSaveInstanceState(outState);
+    }
 }

@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragmentContract.EventListener"/>
+        <variable
             name="model"
             type="com.oleeja.soccerinfo.domain.leagues.LeagueModel" />
     </data>
@@ -19,13 +22,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> eventListener.onLeagueClicked(model)}"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@{model.league}"
+                android:text="@{model.caption}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/big_text"
                 android:textStyle="bold"
