@@ -9,4 +9,14 @@
     <string name="number_of_teams">Number of teams: %d</string>
     <string name="number_of_games">Number of games: %d</string>
     <string name="details">Details</string>
+    <string name="team">Team</string>
+    <string name="plaed_games_abrev">PL</string>
+    <string name="wins_abrev">W</string>
+    <string name="draws_abrev">D</string>
+    <string name="loses_abrev">L</string>
+    <string name="goals_abrev">F</string>
+    <string name="goals_against_abrev">A</string>
+    <string name="goals_difference_abrev">GD</string>
+    <string name="points_abrev">PT</string>
+    <string name="number_sign">#</string>
 </resources>

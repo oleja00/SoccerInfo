@@ -9,6 +9,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -97,6 +100,11 @@ public abstract class BindingAdapter<T extends ViewDataBinding> extends Adapter<
     @android.databinding.BindingAdapter({"onRefresh"})
     public static void refresh(SwipeRefreshLayout srl, SwipeRefreshLayout.OnRefreshListener listener) {
         srl.setOnRefreshListener(listener);
+    }
+
+    @android.databinding.BindingAdapter({"imageUri"})
+    public static void setImage(ImageView imageView, String uri) {
+        Picasso.with(imageView.getContext()).load(uri).into(imageView);
     }
 
 }

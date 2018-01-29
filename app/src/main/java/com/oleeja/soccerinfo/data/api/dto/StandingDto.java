@@ -8,45 +8,45 @@ import com.google.gson.annotations.SerializedName;
 
 public class StandingDto {
     @SerializedName("_links")
-    private LinksDto links;
+    public LinksDto links;
 
     @SerializedName("position")
-    private long position;
+    public long position;
 
     @SerializedName("teamName")
-    private String teamName;
+    public String teamName;
 
     @SerializedName("crestURI")
-    private Object crestURI;
+    public String crestURI;
 
     @SerializedName("playedGames")
-    private long playedGames;
+    public long playedGames;
 
     @SerializedName("points")
-    private long points;
+    public long points;
 
     @SerializedName("goals")
-    private long goals;
+    public long goals;
 
     @SerializedName("goalsAgainst")
-    private long goalsAgainst;
+    public long goalsAgainst;
 
     @SerializedName("goalDifference")
-    private long goalDifference;
+    public long goalDifference;
 
     @SerializedName("wins")
-    private long wins;
+    public long wins;
 
     @SerializedName("draws")
-    private long draws;
+    public long draws;
 
     @SerializedName("losses")
-    private long losses;
+    public long losses;
 
     @SerializedName("home")
-    private HomeAwayDto home;
+    public HomeAwayDto home;
 
     @SerializedName("away")
-    private HomeAwayDto away;
+    public HomeAwayDto away;
 
 }

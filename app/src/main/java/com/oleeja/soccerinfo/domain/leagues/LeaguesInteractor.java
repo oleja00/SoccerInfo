@@ -28,7 +28,7 @@ public class LeaguesInteractor {
         return mLeaguesRepository.getLeague(id);
     }
 
-    public Single<Object> getLeagueTable() {
-        return null;
+    public Single<List<LeagueTableModel>> getLeagueTable(long id) {
+        return mLeaguesRepository.getLeagueTable(id);
     }
 }

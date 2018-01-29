@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Oleja on 29.01.2018.
  */
 
-class HomeAwayDto {
+public class HomeAwayDto {
     @SerializedName("goals")
     public long goals;
 
