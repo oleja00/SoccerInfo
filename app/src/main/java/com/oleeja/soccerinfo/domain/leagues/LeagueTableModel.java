@@ -34,7 +34,7 @@ public abstract class LeagueTableModel implements SortedEntity, Parcelable {
                 .id(id)
                 .position(position)
                 .teamName(teamName)
-                .logoUrl(logoUrl)
+                .logoUrl(logoUrl==null ? "" : logoUrl)
                 .playGames(playGames)
                 .points(points)
                 .goals(goals)

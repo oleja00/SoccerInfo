@@ -28,6 +28,7 @@ public class LeagueTableAdapter extends BindingAdapter<ItemLeagueTableBinding> {
     @Override
     protected void bindItem(BindingViewHolder<ItemLeagueTableBinding> viewHolder, int position, List<Object> payload) {
         viewHolder.getBinding().setModel(mData.get(position));
+        viewHolder.getBinding().setEventListener(mEventListener);
     }
 
     @Override

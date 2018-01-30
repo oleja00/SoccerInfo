@@ -8,12 +8,12 @@ import android.util.Log;
 import com.oleeja.soccerinfo.di.app.AppModule;
 import com.oleeja.soccerinfo.di.app.DaggerAppComponent;
 
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import timber.log.Timber;
-
-import javax.inject.Inject;
 
 public class App extends MultiDexApplication implements HasActivityInjector {
 
@@ -27,7 +27,6 @@ public class App extends MultiDexApplication implements HasActivityInjector {
     @Override
     public void onCreate() {
         super.onCreate();
-
         DebugTools.init(this);
         Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new RemoteTree());
 

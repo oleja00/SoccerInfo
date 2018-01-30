@@ -14,6 +14,7 @@ public interface LeagueTableFragmentContract {
     }
 
     interface EventListener extends BaseEventListener {
+        void onTeamClicked(LeagueTableModel leagueTableModel);
     }
 
     interface EventDelegate {

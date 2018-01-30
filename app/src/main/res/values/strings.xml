@@ -19,4 +19,5 @@
     <string name="goals_difference_abrev">GD</string>
     <string name="points_abrev">PT</string>
     <string name="number_sign">#</string>
+    <string name="svg_resorurce">.svg</string>
 </resources>

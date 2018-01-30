@@ -83,11 +83,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     def tree = fileTree(dir: 'dependencies', include: '**/*.gradle')
     tree.each {
-        File file -> apply from: file, to: dependencies 
+        File file -> apply from: file, to: dependencies
     }
 
 }

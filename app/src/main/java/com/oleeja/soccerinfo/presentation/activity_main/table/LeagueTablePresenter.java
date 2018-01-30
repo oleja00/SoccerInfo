@@ -94,4 +94,9 @@ public final class LeagueTablePresenter implements BasePresenter<LeagueTableFrag
     public void setId(long id) {
         mId = id;
     }
+
+    @Override
+    public void onTeamClicked(LeagueTableModel leagueTableModel) {
+
+    }
 }
