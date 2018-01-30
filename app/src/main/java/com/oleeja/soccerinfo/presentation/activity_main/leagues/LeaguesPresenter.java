@@ -45,18 +45,21 @@ public final class LeaguesPresenter implements BasePresenter<LeaguesFragmentCont
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(subscription -> {
-                    if(isNeedToShowUploading){
+                    if (mView!=null &&isNeedToShowUploading) {
                         mView.showUploading();
                     }
-
+                })
+                .doFinally(() -> {
+                    if (mView!=null) {
+                        mView.hideRefreshUploading();
+                        mView.hideUploading();
+                    }
                 })
                 .subscribe(this::setInfo,
                         throwable -> mErrorHandler.handleError(throwable, mView)));
     }
 
     public void setInfo(List<LeagueModel> leagueModels){
-        mView.hideRefreshUploading();
-        mView.hideUploading();
         mLeagueModels = leagueModels;
         mView.showInfo(leagueModels);
     }
