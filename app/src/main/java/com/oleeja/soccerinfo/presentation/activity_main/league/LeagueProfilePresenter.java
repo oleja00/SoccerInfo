@@ -59,6 +59,7 @@ public final class LeagueProfilePresenter implements BasePresenter<LeagueProfile
 
     @Override
     public void detachView() {
+        RxUtils.unsubscribe(this);
         mView = null;
     }
 
