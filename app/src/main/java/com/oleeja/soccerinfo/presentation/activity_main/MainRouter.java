@@ -2,6 +2,7 @@ package com.oleeja.soccerinfo.presentation.activity_main;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.presentation.activity_main.championsleague.ChampionLeagueFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.championsleague.ChampionLeagueFragmentContract;
 import com.oleeja.soccerinfo.presentation.activity_main.league.LeagueProfileFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.league.LeagueProfileFragmentContract;
@@ -42,6 +43,16 @@ public class MainRouter extends BaseRouter implements
 
     @Override
     public void showLeagueTable(LeagueModel model) {
-        replaceFragmentWithBackStack(R.id.container, LeagueTableFragment.newInstance(model.id()), LeagueTableFragment.class.getCanonicalName());
+        if(model.league().equals(mActivity.getString(R.string.champion_legue_key))){
+            replaceFragmentWithBackStack(R.id.container, ChampionLeagueFragment.newInstance(model.id()), ChampionLeagueFragment.class.getCanonicalName());
+        }else {
+            replaceFragmentWithBackStack(R.id.container, LeagueTableFragment.newInstance(model.id()), LeagueTableFragment.class.getCanonicalName());
+        }
+
+    }
+
+    @Override
+    public void showTeamProfile(long id) {
+
     }
 }

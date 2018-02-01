@@ -18,5 +18,6 @@ public interface LeagueTableFragmentContract {
     }
 
     interface EventDelegate {
+        void showTeamProfile(long id);
     }
 }

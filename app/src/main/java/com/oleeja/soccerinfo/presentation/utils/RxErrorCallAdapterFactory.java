@@ -2,6 +2,7 @@ package com.oleeja.soccerinfo.presentation.utils;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.oleeja.soccerinfo.data.api.dto.ErrorDto;
 import com.oleeja.soccerinfo.domain.exception.ApiException;
 
 import org.reactivestreams.Publisher;
@@ -24,10 +25,8 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 
-
 public class RxErrorCallAdapterFactory extends CallAdapter.Factory {
 
-    private Runnable mAuthExeptionListener;
 
     public static RxErrorCallAdapterFactory create() {
         return new RxErrorCallAdapterFactory(RxJava2CallAdapterFactory.create());
@@ -44,9 +43,6 @@ public class RxErrorCallAdapterFactory extends CallAdapter.Factory {
         return new CallAdapterWrapper(mOriginalAdapter.get(returnType, annotations, retrofit), retrofit, returnType);
     }
 
-    public void setAuthExeptionListener(Runnable authExeptionListener) {
-        mAuthExeptionListener = authExeptionListener;
-    }
 
     private class CallAdapterWrapper implements CallAdapter<Object> {
 
@@ -104,14 +100,13 @@ public class RxErrorCallAdapterFactory extends CallAdapter.Factory {
             if (throwable instanceof HttpException) {
                 HttpException httpException = (HttpException) throwable;
 
-                Converter<ResponseBody, String> converter =
-                        mRetrofit.responseBodyConverter(String.class, new Annotation[0]);
-                String error = converter.convert(httpException.response().errorBody());
-                return new ApiException(httpException.code(), error);
+                Converter<ResponseBody, ErrorDto> converter =
+                        mRetrofit.responseBodyConverter(ErrorDto.class, new Annotation[0]);
+                ErrorDto error = converter.convert(httpException.response().errorBody());
+                return new ApiException(httpException.code(), error.error);
             }
             return throwable;
         }
-
     }
 
 }

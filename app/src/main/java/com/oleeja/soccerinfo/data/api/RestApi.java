@@ -27,4 +27,7 @@ public interface RestApi {
 
     @GET("competitions/{id}/leagueTable")
     Single<ChampionLigueResponse> getChampionLeagueTable(@Path("id") long id);
+
+//    @GET("teams/{id}")
+//    Single<ChampionLigueResponse> getChampionLeagueTable(@Path("id") long id);
 }

@@ -20,4 +20,6 @@
     <string name="points_abrev">PT</string>
     <string name="number_sign">#</string>
     <string name="svg_resorurce">.svg</string>
+    <string name="legue_table">League Table</string>
+    <string name="champion_legue_key">CL</string>
 </resources>

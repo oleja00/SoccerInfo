@@ -100,6 +100,6 @@ public final class LeagueTablePresenter implements BasePresenter<LeagueTableFrag
 
     @Override
     public void onTeamClicked(LeagueTableModel leagueTableModel) {
-
+        mEventDelegate.showTeamProfile(leagueTableModel.id());
     }
 }

@@ -1,9 +1,12 @@
 package com.oleeja.soccerinfo.data.leagues;
 
 import com.oleeja.soccerinfo.data.api.RestApi;
+import com.oleeja.soccerinfo.data.api.mappers.ChampionLeagueResponseMapper;
+import com.oleeja.soccerinfo.data.api.mappers.ChampionLeagueTableResponseMapper;
 import com.oleeja.soccerinfo.data.api.mappers.LeagueTableResponseMapper;
 import com.oleeja.soccerinfo.data.api.mappers.LeaguesResponseMapper;
 import com.oleeja.soccerinfo.data.utils.Mappers;
+import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
 import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
 import com.oleeja.soccerinfo.domain.leagues.LeagueTableModel;
 import com.oleeja.soccerinfo.domain.leagues.LeaguesRepository;
@@ -23,14 +26,20 @@ public class LeaguesRepositoryImpl implements LeaguesRepository {
     private RestApi mRestApi;
     private LeaguesResponseMapper mLeaguesResponseMapper;
     private LeagueTableResponseMapper mLeagueTableResponseMapper;
+    private ChampionLeagueResponseMapper mChampionLeagueResponseMapper;
+    private ChampionLeagueTableResponseMapper mChampionLeagueTableResponseMapper;
 
     @Inject
     public LeaguesRepositoryImpl(RestApi restApi,
                                  LeaguesResponseMapper leaguesResponseMapper,
-                                 LeagueTableResponseMapper leagueTableResponseMapper){
+                                 LeagueTableResponseMapper leagueTableResponseMapper,
+                                 ChampionLeagueResponseMapper championLeagueResponseMapper,
+                                 ChampionLeagueTableResponseMapper championLeagueTableResponseMapper){
         mRestApi = restApi;
         mLeaguesResponseMapper = leaguesResponseMapper;
         mLeagueTableResponseMapper = leagueTableResponseMapper;
+        mChampionLeagueResponseMapper = championLeagueResponseMapper;
+        mChampionLeagueTableResponseMapper = championLeagueTableResponseMapper;
     }
 
 
@@ -48,5 +57,12 @@ public class LeaguesRepositoryImpl implements LeaguesRepository {
     public Single<List<LeagueTableModel>> getLeagueTable(long id) {
         return mRestApi.getLeagueTable(id).map(
                 leagueTableResponse -> Mappers.mapCollection(leagueTableResponse.standing, mLeagueTableResponseMapper));
+    }
+
+    @Override
+    public Single<List<List<ChampionGroupModel>>> getChampionLeagueTable(long id) {
+        return mRestApi.getChampionLeagueTable(id).map(championLigueResponse ->{
+            return mChampionLeagueTableResponseMapper.map(championLigueResponse.standings);
+        });
     }
 }

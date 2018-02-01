@@ -138,10 +138,6 @@ public abstract class BindingAdapter<T extends ViewDataBinding> extends Adapter<
         }else {
              Glide.with(imageView.getContext()).load(uri).placeholder(R.mipmap.ic_loading).error(R.mipmap.ic_error).into(imageView);
         }
-
-
-
-
     }
 
 }
