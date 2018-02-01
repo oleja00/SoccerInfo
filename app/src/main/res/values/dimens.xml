@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_defauld_pading">16dp</dimen>
+    <dimen name="big_text">48sp</dimen>
+    <dimen name="medium_text">24sp</dimen>
+    <dimen name="small_text">16sp</dimen>
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="table_row_width">24dp</dimen>
+    <dimen name="half_activity_margin">8dp</dimen>
+    <dimen name="big_image_size">86dp</dimen>
+    <dimen name="button_detail_size">48dp</dimen>
+</resources>

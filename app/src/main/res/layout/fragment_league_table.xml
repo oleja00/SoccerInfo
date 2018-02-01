@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:toos="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragmentContract.EventListener" />
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefresh="@{() -> eventListener.onRefresh()}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_defauld_pading"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                   style="@style/TableRowTextView"
+                    android:text="@string/number_sign"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <ImageView
+                    android:contentDescription="@null"
+                    android:layout_width="@dimen/table_row_width"
+                    android:layout_height="@dimen/table_row_width"
+                    android:scaleType="centerInside"
+                    toos:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/half_activity_margin"
+                    android:paddingEnd="@dimen/half_activity_margin"
+                    android:textSize="@dimen/small_text"
+                    android:text="@string/team"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/plaed_games_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/wins_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/draws_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/loses_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/goals_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/goals_against_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/goals_difference_abrev"/>
+
+                <TextView
+                    style="@style/DividerVerticalTextView" />
+
+                <TextView
+                    style="@style/TableRowTextView"
+                    android:text="@string/points_abrev"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_size"
+                android:background="@android:color/black"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

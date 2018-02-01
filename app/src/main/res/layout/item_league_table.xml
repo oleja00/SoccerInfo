@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragmentContract.EventListener"/>
+
+        <variable
+            name="model"
+            type="com.oleeja.soccerinfo.domain.leagues.model.LeagueTableModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.position}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <ImageView
+                android:contentDescription="@null"
+                android:layout_width="@dimen/table_row_width"
+                android:layout_height="@dimen/table_row_width"
+                android:scaleType="centerInside"
+                app:imageUri="@{model.logoUrl}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:onClick="@{() -> eventListener.onTeamClicked(model)}"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/half_activity_margin"
+                android:paddingEnd="@dimen/half_activity_margin"
+                android:textSize="@dimen/small_text"
+                android:text="@{model.teamName}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.playGames}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.wins}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.draws}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.loses}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.goals}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.goalsAgainst}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.goalDifference}"/>
+
+            <TextView
+                style="@style/DividerVerticalTextView" />
+
+            <TextView
+                style="@style/TableRowTextView"
+                android:text="@{model.points()}"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_size"
+            android:background="@android:color/black"/>
+
+    </LinearLayout>
+</layout>

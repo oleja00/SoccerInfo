@@ -11,6 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -53,7 +54,7 @@ android {
             
             //versionCode gitVersionCode
             //versionName gitVersionName
-            buildConfigField("String", "BASE_URL", "\"\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/\"")
             versionNameSuffix "-stage"
             applicationIdSuffix "stage"
         }
@@ -62,7 +63,7 @@ android {
             
             //versionCode gitVersionCode
             //versionName gitVersionName
-            buildConfigField("String", "BASE_URL", "\"\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/\"")
         }
     }
     dataBinding {
@@ -83,12 +84,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     def tree = fileTree(dir: 'dependencies', include: '**/*.gradle')
     tree.each {
-        File file -> apply from: file, to: dependencies 
+        File file -> apply from: file, to: dependencies
     }
+
 }
 
 buildscript {
@@ -102,8 +103,6 @@ buildscript {
 }
 
 apply plugin: 'com.jakewharton.hugo'
-
-apply from: "$project.rootDir/tools/lint.gradle"
 
 apply from: "$project.rootDir/tools/icon-badge.gradle"
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.championsleague.ChampionLeagueFragmentContract.EventListener" />
+
+        <import type="java.util.List"/>
+
+        <variable
+            name="model"
+            type="List&lt;com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel>" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/medium_text"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:text="@{model.get(0).group}"
+            tools:text="A"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:click="@{eventListener}"
+            app:group="@{model}"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_size"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+</layout>

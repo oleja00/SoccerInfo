@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.oleeja.soccerinfo.domain.leagues.model.LeagueModel" />
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.league.LeagueProfileFragmentContract.EventListener" />
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefresh="@{() -> eventListener.onRefresh()}">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_defauld_pading">
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/caption(model.caption)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/league(model.league)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/year(model.year)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/current_match_day(model.currentMatchday)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/number_of_match_days(model.numberOfMatchdays)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/number_of_teams(model.numberOfTeams)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/number_of_games(model.numberOfGames)}" />
+
+                <TextView
+                    style="@style/ProfileLeagueTextView"
+                    android:text="@{@string/last_update(model.lastUpdated)}" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/legue_table"
+                    android:onClick="@{() ->eventListener.onDetailsClicked(model)}"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="team"
+            type="com.oleeja.soccerinfo.domain.teams.model.TeamModel" />
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragmentContract.EventListener" />
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefresh="@{() -> eventListener.onRefresh()}">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                style="@style/LinerGravityOrientation"
+                android:layout_width="match_parent"
+                android:padding="16dp"
+                android:layout_height="match_parent"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/tvLogoBig"
+                        android:layout_width="@dimen/big_image_size"
+                        android:layout_height="@dimen/big_image_size"
+                        android:contentDescription="@null"
+                        app:imageUri="@{team.crestUrl}"
+                        tools:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tvTeam"
+                        style="@style/ProfileTeamTextView"
+                        android:layout_toEndOf="@+id/tvLogoBig"
+                        android:text='@{@string/name(team.name?? "")}'/>
+
+                    <TextView
+                        android:id="@+id/tvCode"
+                        style="@style/ProfileTeamTextView"
+                        android:layout_below="@+id/tvTeam"
+                        android:layout_toEndOf="@+id/tvLogoBig"
+                        android:text='@{@string/code(team.code ?? "")}' />
+
+                    <TextView
+                        style="@style/ProfileTeamTextView"
+                        android:layout_below="@+id/tvCode"
+                        android:layout_toEndOf="@+id/tvLogoBig"
+                        android:text='@{@string/short_name(team.shortName ?? "")}' />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/players"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvPlayers"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>
