@@ -2,7 +2,7 @@ package com.oleeja.soccerinfo.presentation.activity_main.leagues;
 
 import android.os.Bundle;
 
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 import com.oleeja.soccerinfo.domain.leagues.LeaguesInteractor;
 import com.oleeja.soccerinfo.presentation.common.BasePresenter;
 import com.oleeja.soccerinfo.presentation.common.DefaultErrorHandler;

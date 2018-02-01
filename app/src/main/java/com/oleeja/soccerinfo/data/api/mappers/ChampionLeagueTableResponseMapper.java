@@ -3,7 +3,7 @@ package com.oleeja.soccerinfo.data.api.mappers;
 import com.oleeja.soccerinfo.data.api.dto.StandingsDto;
 import com.oleeja.soccerinfo.data.utils.Mapper;
 import com.oleeja.soccerinfo.data.utils.Mappers;
-import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
 
 import java.util.ArrayList;
 import java.util.List;

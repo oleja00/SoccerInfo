@@ -2,7 +2,7 @@ package com.oleeja.soccerinfo.data.api.mappers;
 
 import com.oleeja.soccerinfo.data.api.dto.LeagueDto;
 import com.oleeja.soccerinfo.data.utils.Mapper;
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 
 import javax.inject.Inject;
 

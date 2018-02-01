@@ -1,6 +1,9 @@
 package com.oleeja.soccerinfo.domain.leagues;
 
 import com.oleeja.soccerinfo.data.leagues.LeaguesRepositoryImpl;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueTableModel;
 
 import java.util.List;
 

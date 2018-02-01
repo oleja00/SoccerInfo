@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.ItemChampionGroupBinding;
-import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
 import com.oleeja.soccerinfo.presentation.activity_main.championsleague.common.TeamLeagueView;
 import com.oleeja.soccerinfo.presentation.common.BindingAdapter;
 import com.oleeja.soccerinfo.presentation.common.BindingViewHolder;

@@ -12,6 +12,8 @@ import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.leagues.injection.LeaguesFragmentComponent;
 import com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.table.injection.LeagueTableFragmentComponent;
+import com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragment;
+import com.oleeja.soccerinfo.presentation.activity_main.team.injection.TeamFragmentComponent;
 
 import dagger.Binds;
 import dagger.Module;
@@ -43,7 +45,8 @@ public interface MainActivityComponent extends AndroidInjector<MainActivity> {
     @Module(subcomponents = {LeaguesFragmentComponent.class,
             LeagueProfileFragmentComponent.class,
             LeagueTableFragmentComponent.class,
-            ChampionLeagueFragmentComponent.class})
+            ChampionLeagueFragmentComponent.class,
+            TeamFragmentComponent.class})
     abstract class FragmentBindingsModule {
         @Binds
         @IntoMap
@@ -64,6 +67,11 @@ public interface MainActivityComponent extends AndroidInjector<MainActivity> {
         @IntoMap
         @FragmentKey(ChampionLeagueFragment.class)
         public abstract AndroidInjector.Factory<? extends Fragment> championLeagueTableFragmentComponentBuilder(ChampionLeagueFragmentComponent.Builder builder);
+
+        @Binds
+        @IntoMap
+        @FragmentKey(TeamFragment.class)
+        public abstract AndroidInjector.Factory<? extends Fragment> teamFragmentComponentBuilder(TeamFragmentComponent.Builder builder);
     }
 
 }
