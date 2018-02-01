@@ -1,8 +1,10 @@
 package com.oleeja.soccerinfo.data.api;
 
 import com.oleeja.soccerinfo.data.api.dto.LeagueDto;
+import com.oleeja.soccerinfo.data.api.dto.TeamDto;
 import com.oleeja.soccerinfo.data.api.responses.ChampionLigueResponse;
 import com.oleeja.soccerinfo.data.api.responses.LeagueTableResponse;
+import com.oleeja.soccerinfo.data.api.responses.PlayersResponse;
 
 import java.util.List;
 
@@ -28,6 +30,9 @@ public interface RestApi {
     @GET("competitions/{id}/leagueTable")
     Single<ChampionLigueResponse> getChampionLeagueTable(@Path("id") long id);
 
-//    @GET("teams/{id}")
-//    Single<ChampionLigueResponse> getChampionLeagueTable(@Path("id") long id);
+    @GET("teams/{id}")
+    Single<TeamDto> getTeam(@Path("id") long id);
+
+    @GET("teams/{id}/players")
+    Single<PlayersResponse> getPlayers(@Path("id") long id);
 }

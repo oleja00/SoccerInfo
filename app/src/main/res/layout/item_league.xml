@@ -10,7 +10,7 @@
             type="com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragmentContract.EventListener"/>
         <variable
             name="model"
-            type="com.oleeja.soccerinfo.domain.leagues.LeagueModel" />
+            type="com.oleeja.soccerinfo.domain.leagues.model.LeagueModel" />
     </data>
 
     <android.support.v7.widget.CardView

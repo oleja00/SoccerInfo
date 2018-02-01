@@ -1,6 +1,6 @@
 package com.oleeja.soccerinfo.presentation.activity_main.leagues;
 
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 import com.oleeja.soccerinfo.presentation.common.BaseEventListener;
 import com.oleeja.soccerinfo.presentation.common.BaseView;
 

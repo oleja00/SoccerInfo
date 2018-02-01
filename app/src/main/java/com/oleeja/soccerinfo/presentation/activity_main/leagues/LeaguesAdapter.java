@@ -2,7 +2,7 @@ package com.oleeja.soccerinfo.presentation.activity_main.leagues;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.ItemLeagueBinding;
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 import com.oleeja.soccerinfo.presentation.common.BindingAdapter;
 import com.oleeja.soccerinfo.presentation.common.BindingViewHolder;
 import com.oleeja.soccerinfo.presentation.common.SortedListWrapper;

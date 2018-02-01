@@ -1,7 +1,7 @@
 package com.oleeja.soccerinfo.presentation.activity_main;
 
 import com.oleeja.soccerinfo.R;
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 import com.oleeja.soccerinfo.presentation.activity_main.championsleague.ChampionLeagueFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.championsleague.ChampionLeagueFragmentContract;
 import com.oleeja.soccerinfo.presentation.activity_main.league.LeagueProfileFragment;
@@ -10,6 +10,7 @@ import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragmentContract;
 import com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragmentContract;
+import com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragmentContract;
 import com.oleeja.soccerinfo.presentation.common.BaseRouter;
 
 import javax.inject.Inject;
@@ -22,7 +23,8 @@ public class MainRouter extends BaseRouter implements
         LeaguesFragmentContract.EventDelegate,
         LeagueProfileFragmentContract.EventDelegate,
         LeagueTableFragmentContract.EventDelegate,
-        ChampionLeagueFragmentContract.EventDelegate{
+        ChampionLeagueFragmentContract.EventDelegate,
+        TeamFragmentContract.EventDelegate{
 
     private MainActivity mActivity;
 

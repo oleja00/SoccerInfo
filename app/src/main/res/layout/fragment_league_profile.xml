@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.oleeja.soccerinfo.domain.leagues.LeagueModel" />
+            type="com.oleeja.soccerinfo.domain.leagues.model.LeagueModel" />
 
         <variable
             name="eventListener"

@@ -2,7 +2,7 @@ package com.oleeja.soccerinfo.data.api.mappers;
 
 import com.oleeja.soccerinfo.data.api.dto.ChampionGroupDto;
 import com.oleeja.soccerinfo.data.utils.Mapper;
-import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
 
 import javax.inject.Inject;
 
@@ -18,11 +18,11 @@ public class ChampionLeagueResponseMapper implements Mapper<ChampionGroupDto, Ch
     }
 
     @Override
-    public ChampionGroupModel map(ChampionGroupDto standingsDto) {
+    public ChampionGroupModel map(ChampionGroupDto championGroupDto) {
         return ChampionGroupModel.create(
-                standingsDto.teamId,
-                standingsDto.team,
-                standingsDto.group,
-                standingsDto.crestURI);
+                championGroupDto.teamId,
+                championGroupDto.team,
+                championGroupDto.group,
+                championGroupDto.crestURI);
     }
 }

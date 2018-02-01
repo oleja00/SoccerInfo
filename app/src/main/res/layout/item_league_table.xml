@@ -10,7 +10,7 @@
 
         <variable
             name="model"
-            type="com.oleeja.soccerinfo.domain.leagues.LeagueTableModel" />
+            type="com.oleeja.soccerinfo.domain.leagues.model.LeagueTableModel" />
     </data>
 
     <LinearLayout

@@ -4,7 +4,7 @@ import android.databinding.BindingConversion;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.ItemLeagueTableBinding;
-import com.oleeja.soccerinfo.domain.leagues.LeagueTableModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueTableModel;
 import com.oleeja.soccerinfo.presentation.common.BindingAdapter;
 import com.oleeja.soccerinfo.presentation.common.BindingViewHolder;
 import com.oleeja.soccerinfo.presentation.common.SortedListWrapper;

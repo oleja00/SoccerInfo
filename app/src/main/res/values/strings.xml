@@ -22,4 +22,7 @@
     <string name="svg_resorurce">.svg</string>
     <string name="legue_table">League Table</string>
     <string name="champion_legue_key">CL</string>
+    <string name="name">Name: %s</string>
+    <string name="code">Code: %s</string>
+    <string name="short_name">Short name: %s</string>
 </resources>

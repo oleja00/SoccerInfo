@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.FragmentChampionLeagueBinding;
-import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
 import com.oleeja.soccerinfo.presentation.common.BaseFragment;
 
 import java.util.List;

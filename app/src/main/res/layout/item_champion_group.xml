@@ -13,7 +13,7 @@
 
         <variable
             name="model"
-            type="List&lt;com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel>" />
+            type="List&lt;com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel>" />
     </data>
 
     <LinearLayout

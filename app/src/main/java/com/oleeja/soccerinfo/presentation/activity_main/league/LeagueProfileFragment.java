@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.oleeja.soccerinfo.R;
 import com.oleeja.soccerinfo.databinding.FragmentLeagueProfileBinding;
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
 import com.oleeja.soccerinfo.presentation.common.BaseFragment;
 
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package com.oleeja.soccerinfo.domain.leagues;
+package com.oleeja.soccerinfo.domain.leagues.model;
 
 import android.os.Parcelable;
 

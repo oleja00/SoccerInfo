@@ -6,9 +6,9 @@ import com.oleeja.soccerinfo.data.api.mappers.ChampionLeagueTableResponseMapper;
 import com.oleeja.soccerinfo.data.api.mappers.LeagueTableResponseMapper;
 import com.oleeja.soccerinfo.data.api.mappers.LeaguesResponseMapper;
 import com.oleeja.soccerinfo.data.utils.Mappers;
-import com.oleeja.soccerinfo.domain.leagues.ChampionGroupModel;
-import com.oleeja.soccerinfo.domain.leagues.LeagueModel;
-import com.oleeja.soccerinfo.domain.leagues.LeagueTableModel;
+import com.oleeja.soccerinfo.domain.leagues.model.ChampionGroupModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueModel;
+import com.oleeja.soccerinfo.domain.leagues.model.LeagueTableModel;
 import com.oleeja.soccerinfo.domain.leagues.LeaguesRepository;
 
 import java.util.List;
@@ -61,8 +61,7 @@ public class LeaguesRepositoryImpl implements LeaguesRepository {
 
     @Override
     public Single<List<List<ChampionGroupModel>>> getChampionLeagueTable(long id) {
-        return mRestApi.getChampionLeagueTable(id).map(championLigueResponse ->{
-            return mChampionLeagueTableResponseMapper.map(championLigueResponse.standings);
-        });
+        return mRestApi.getChampionLeagueTable(id)
+                .map(championLigueResponse -> mChampionLeagueTableResponseMapper.map(championLigueResponse.standings));
     }
 }
