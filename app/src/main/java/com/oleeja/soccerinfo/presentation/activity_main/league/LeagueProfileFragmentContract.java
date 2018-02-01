@@ -12,8 +12,10 @@ public interface LeagueProfileFragmentContract {
     }
 
     interface EventListener extends BaseEventListener {
+        void onDetailsClicked(LeagueModel model);
     }
 
     interface EventDelegate {
+        void showLeagueTable(LeagueModel model);
     }
 }

@@ -33,8 +33,14 @@ public final class LeagueProfilePresenter implements BasePresenter<LeagueProfile
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(subscription -> {
-                    if (isNeedToShowUploading) {
+                    if (mView!=null &&isNeedToShowUploading) {
                         mView.showUploading();
+                    }
+                })
+                .doFinally(() -> {
+                    if (mView!=null) {
+                        mView.hideRefreshUploading();
+                        mView.hideUploading();
                     }
                 })
                 .subscribe(this::setInfo,
@@ -42,8 +48,6 @@ public final class LeagueProfilePresenter implements BasePresenter<LeagueProfile
     }
 
     public void setInfo(LeagueModel leagueModel) {
-        mView.hideUploading();
-        mView.hideRefreshUploading();
         mLeagueModel = leagueModel;
         mView.showInfo(leagueModel);
     }
@@ -55,11 +59,17 @@ public final class LeagueProfilePresenter implements BasePresenter<LeagueProfile
 
     @Override
     public void detachView() {
+        RxUtils.unsubscribe(this);
         mView = null;
     }
 
     @Override
     public void onRefresh() {
         getLeague(false);
+    }
+
+    @Override
+    public void onDetailsClicked(LeagueModel model) {
+        mEventDelegate.showLeagueTable(model);
     }
 }

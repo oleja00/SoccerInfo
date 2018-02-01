@@ -7,13 +7,14 @@ import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.oleeja.soccerinfo.domain.exception.ApiException;
+
 import javax.inject.Inject;
 
 import timber.log.Timber;
 
 
-
-public class DefaultErrorHandler  {
+public class DefaultErrorHandler {
 
     protected Activity mActivity;
 
@@ -31,19 +32,11 @@ public class DefaultErrorHandler  {
 
         if (view != null) {
             String message = null;
-//            if (throwable instanceof SocketTimeoutException) {
-//                message = getStringSecondaryErrorMessage();
-//            } else if (throwable instanceof ApiException) {
-//                message = throwable.getMessage();
-//            } else if (throwable instanceof MediaTypeException) {
-//                message = throwable.getMessage();
-//            } else if (throwable instanceof LongVideoException) {
-//                message = mActivity.getString(R.string.GENERAL_ERROR_VIDEO_IS_TOO_LONG);
-//            } else if (throwable instanceof IOException && (throwable.getMessage().equals("grpc failed") || throwable.getMessage().equals("Service not Available"))) {
-//                message = "Google geoservice not available";
-//            } else {
-//                message = getStringMainErrorMessage();
-//            }
+            if (throwable instanceof ApiException) {
+                message = throwable.getMessage();
+            } else {
+                message = getStringMainErrorMessage();
+            }
             view.showError(message);
         }
 

@@ -10,7 +10,7 @@ import com.oleeja.soccerinfo.presentation.common.SortedEntity;
  */
 
 @AutoValue
-public abstract class LeagueModel implements SortedEntity, Parcelable{
+public abstract class LeagueModel implements SortedEntity, Parcelable {
 
     public abstract long id();
 
@@ -32,11 +32,11 @@ public abstract class LeagueModel implements SortedEntity, Parcelable{
 
     public static LeagueModel create(long id, String caption, String league, String year, long currentMatchday,
                                      long numberOfMatchdays, long numberOfTeams, long numberOfGames,
-                                     String lastUpdated){
+                                     String lastUpdated) {
 
         return builder()
                 .id(id)
-              .caption(caption)
+                .caption(caption)
                 .league(league)
                 .year(year)
                 .currentMatchday(currentMatchday)
@@ -50,7 +50,7 @@ public abstract class LeagueModel implements SortedEntity, Parcelable{
     @SuppressWarnings("ConstantConditions")
     @Override
     public boolean areItemsTheSame(SortedEntity sortedEntity) {
-        return id() != 0 && id()==(((LeagueModel) sortedEntity).id());
+        return id() != 0 && id() == (((LeagueModel) sortedEntity).id());
     }
 
     @Override

@@ -1,10 +1,10 @@
 package com.oleeja.soccerinfo.di.module;
 
 
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.oleeja.soccerinfo.BuildConfig;
 import com.oleeja.soccerinfo.data.api.RestApi;
 import com.oleeja.soccerinfo.data.utils.AuthInterceptor;
+import com.oleeja.soccerinfo.presentation.utils.RxErrorCallAdapterFactory;
 
 import javax.inject.Singleton;
 
@@ -30,10 +30,11 @@ public class NetworkModule {
     @Provides
     @Singleton
     Retrofit provideRetrofit(OkHttpClient okHttp) {
+        RxErrorCallAdapterFactory factory = RxErrorCallAdapterFactory.create();
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL  + API_VERSION + "/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+                .addCallAdapterFactory(factory);
 
         builder.client(okHttp);
 

@@ -12,4 +12,8 @@ public interface LeaguesRepository {
     Single <List<LeagueModel>> getLeagues();
 
     Single<LeagueModel> getLeague(long id);
+
+    Single<List<LeagueTableModel>> getLeagueTable(long id);
+
+    Single<List<List<ChampionGroupModel>>> getChampionLeagueTable(long id);
 }
