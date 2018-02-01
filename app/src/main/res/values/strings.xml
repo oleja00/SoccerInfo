@@ -25,4 +25,11 @@
     <string name="name">Name: %s</string>
     <string name="code">Code: %s</string>
     <string name="short_name">Short name: %s</string>
+    <string name="players">Players</string>
+    <string name="player_details">Player details</string>
+    <string name="position">Position: %s</string>
+    <string name="number">Number: %d</string>
+    <string name="date_of_birth">Date of birth:</string>
+    <string name="nationality">Nationality:</string>
+    <string name="contract_until">Contract until:</string>
 </resources>

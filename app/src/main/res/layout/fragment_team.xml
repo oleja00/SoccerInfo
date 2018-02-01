@@ -28,7 +28,9 @@
             <LinearLayout
                 style="@style/LinerGravityOrientation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:padding="16dp"
+                android:layout_height="match_parent"
+                android:baselineAligned="false">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -47,28 +49,43 @@
                         android:id="@+id/tvTeam"
                         style="@style/ProfileTeamTextView"
                         android:layout_toEndOf="@+id/tvLogoBig"
-                        android:text="@{@string/name(team.name)}"/>
+                        android:text='@{@string/name(team.name?? "")}'/>
 
                     <TextView
                         android:id="@+id/tvCode"
                         style="@style/ProfileTeamTextView"
                         android:layout_below="@+id/tvTeam"
                         android:layout_toEndOf="@+id/tvLogoBig"
-                        android:text="@{@string/code(team.code)}"/>
+                        android:text='@{@string/code(team.code ?? "")}' />
 
                     <TextView
                         style="@style/ProfileTeamTextView"
                         android:layout_below="@+id/tvCode"
                         android:layout_toEndOf="@+id/tvLogoBig"
-                        android:text="@{@string/short_name(team.shortName)}"/>
+                        android:text='@{@string/short_name(team.shortName ?? "")}' />
 
                 </RelativeLayout>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvPlayers"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/players"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvPlayers"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

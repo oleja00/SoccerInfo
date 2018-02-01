@@ -18,6 +18,7 @@
 
     <style name="ProfileTeamTextView" parent="ProfileLeagueTextView">
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/small_text</item>
     </style>
 
     <style name="DividerVerticalTextView">

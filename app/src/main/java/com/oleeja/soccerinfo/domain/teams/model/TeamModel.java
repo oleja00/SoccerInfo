@@ -28,10 +28,10 @@ public abstract class TeamModel implements SortedEntity, Parcelable {
     public static TeamModel create(String name, String code, String shortName, String crestUri) {
 
         return builder()
-                .name(name)
-                .code(code)
-                .shortName(shortName)
-                .crestUrl(crestUri)
+                .name(name==null? "":name)
+                .code(code==null? "" :code)
+                .shortName(shortName==null? "" :shortName)
+                .crestUrl(crestUri==null?"" : crestUri)
                 .playerModels(new ArrayList<>())
                 .build();
     }

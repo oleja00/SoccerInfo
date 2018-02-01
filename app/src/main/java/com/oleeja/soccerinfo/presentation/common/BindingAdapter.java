@@ -117,7 +117,7 @@ public abstract class BindingAdapter<T extends ViewDataBinding> extends Adapter<
     @android.databinding.BindingAdapter({"imageUri"})
     public static void setImage(ImageView imageView, String uri) {
 
-        if(uri.endsWith(imageView.getContext().getResources().getString(R.string.svg_resorurce))){
+        if(uri!=null && uri.endsWith(imageView.getContext().getResources().getString(R.string.svg_resorurce))){
             GenericRequestBuilder<Uri,InputStream,SVG,PictureDrawable> requestBuilder = Glide.with(imageView.getContext())
                     .using(Glide.buildStreamModelLoader(Uri.class, imageView.getContext()), InputStream.class)
                     .from(Uri.class)

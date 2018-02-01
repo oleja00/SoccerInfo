@@ -28,12 +28,12 @@ public abstract class PlayerModel implements SortedEntity, Parcelable {
                                      String nationality, String contractUntil) {
 
         return builder()
-                .name(name)
-                .position(position)
+                .name(name==null? "":name)
+                .position(position==null? "":position)
                 .jerseyNumber(jerseyNumber)
-                .dateOfBirth(dateOfBirth)
-                .nationality(nationality)
-                .contractUntil(contractUntil)
+                .dateOfBirth(dateOfBirth==null? "": dateOfBirth)
+                .nationality(nationality==null? "": nationality)
+                .contractUntil(contractUntil==null? "": contractUntil)
                 .build();
     }
 

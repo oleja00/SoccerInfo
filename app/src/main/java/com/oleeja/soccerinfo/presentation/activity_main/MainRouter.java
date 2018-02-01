@@ -10,6 +10,7 @@ import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.leagues.LeaguesFragmentContract;
 import com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.table.LeagueTableFragmentContract;
+import com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragment;
 import com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragmentContract;
 import com.oleeja.soccerinfo.presentation.common.BaseRouter;
 
@@ -55,6 +56,6 @@ public class MainRouter extends BaseRouter implements
 
     @Override
     public void showTeamProfile(long id) {
-
+        replaceFragmentWithBackStack(R.id.container, TeamFragment.newInstance(id), TeamFragment.class.getCanonicalName());
     }
 }

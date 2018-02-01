@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eventListener"
+            type="com.oleeja.soccerinfo.presentation.activity_main.team.TeamFragmentContract.EventListener"/>
+
+        <variable
+            name="model"
+            type="com.oleeja.soccerinfo.domain.teams.model.PlayerModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:text="@{model.name}"/>
+
+        <ImageButton
+            android:contentDescription="@null"
+            android:layout_width="@dimen/button_detail_size"
+            android:layout_height="@dimen/button_detail_size"
+            android:onClick="@{() -> eventListener.onDetailClicked(model)}"
+            app:srcCompat="@drawable/ic_person_white_24dp"/>
+
+    </LinearLayout>
+</layout>
